@@ -13,3 +13,23 @@ export const Kids = () => {
     return html
 }
 
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+
+            if(itemClicked.dataset.type === "child") {
+                const clickedKid = parseInt(itemClicked.dataset.id)
+
+                let matchedKid = null
+                for (const child of children) {
+                    if (child.id === clickedKid) {
+                        matchedKid = child
+                    }
+                }
+                if (matchedKid) {
+                    window.alert(`${matchedKid.name} wish is ${matchedKid.wish}`)
+                }
+            }
+    }
+)
